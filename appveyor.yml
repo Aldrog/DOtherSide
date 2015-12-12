@@ -8,5 +8,5 @@ environment:
     - TARGET: i686-pc-windows-msvc
     
 build_script:
-  cd build
-  cmake ..
+  - cmake "-G%GENERATOR%" -H. -B_builds
+  - cmake --build _builds --config "%CONFIG%"
