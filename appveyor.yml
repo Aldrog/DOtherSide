@@ -7,7 +7,7 @@ environment:
     - TARGET: x86_64-pc-windows-msvc
     - TARGET: i686-pc-windows-msvc
     
-before_install:
+build_script:
   mkdir build
   cd build
   cmake ..
