@@ -1,24 +1,7 @@
-environment:
-  matrix:
-    - TARGET: i686-pc-windows-gnu
-      MSYS_BITS: 32
-      QTDIR: C:\Qt\5.5\mingw492_32\bin
-      BUILD_CMD: mingw32-make
-    - TARGET: x86_64-pc-windows-msvc
-      QTDIR: C:\Qt\5.5\msvc2013_64\bin
-      BUILD_CMD: msbuild
-    - TARGET: i686-pc-windows-msvc
-      QTDIR: C:\Qt\5.5\msvc2013\bin
-      BUILD_CMD: msbuild
-    
 build_script:
+  - set PATH=%PATH%;C:\Qt\Tools\mingw492_32;C:\Qt\Tools\mingw492_32;C:\Qt\5.5\mingw492_32\bin
   - mkdir build
   - cd build
-  - echo %PATH%
-  - echo %QTDIR%
-  - echo %TARGET%
-  - dir C:\Qt
-  - dir C:\Qt\5.5
-  - SET PATH=%PATH%;%QTDIR%
-  - cmake ..
-  - msbuild
+  - cmake -G"MinGW Makefiles" ..
+  - mingw32-make
+  
