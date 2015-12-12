@@ -1,4 +1,5 @@
 build_script:
+  - where cmake
   - set PATH=C:\Qt\Tools\mingw492_32;C:\Qt\Tools\mingw492_32;C:\Qt\5.5\mingw492_32\bin
   - mkdir build
   - cd build
