@@ -21,4 +21,4 @@ build_script:
   - dir C:\Qt\5.5
   - SET PATH=%PATH%;%QTDIR%
   - cmake ..
-  - %BUILD_CMD%
+  - ps: %BUILD_CMD%
