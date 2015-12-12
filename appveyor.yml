@@ -2,12 +2,19 @@ environment:
   matrix:
     - TARGET: x86_64-pc-windows-gnu
       MSYS_BITS: 64
+      QTDIR: C:\Qt\mingw64
     - TARGET: i686-pc-windows-gnu
       MSYS_BITS: 32
+      QTDIR: C:\Qt\mingw32
     - TARGET: x86_64-pc-windows-msvc
+      QTDIR: C:\Qt\msvc64
     - TARGET: i686-pc-windows-msvc
+      QTDIR: C:\Qt\msvc32
     
 build_script:
   - mkdir build
   - cd build
-  - cmake ..
+  - echo %PATH%
+  - echo %QTDIR%
+  - echo %TARGET%
+  - cmake -DQt5Core_DIR=%QTDIR% ..
