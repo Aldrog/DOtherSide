@@ -1,6 +1,9 @@
 build_script:
   - where cmake
-  - set PATH=C:\Qt\Tools\mingw492_32;C:\Qt\Tools\mingw492_32;C:\Qt\5.5\mingw492_32\bin
+  - SET CMAKE_PATH=C:\Program Files (x86)\CMake\bin\cmake.exe
+  - SET MINGW_PATH=C:\Qt\Tools\mingw492_32
+  - SET QTDIR=C:\Qt\5.5\mingw492_32\bin
+  - set PATH=%CMAKE_PATH%;%MINGW_PATH%;%QTDIR%
   - mkdir build
   - cd build
   - cmake -G"MinGW Makefiles" ..
