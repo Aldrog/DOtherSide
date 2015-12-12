@@ -6,3 +6,8 @@ environment:
       MSYS_BITS: 32
     - TARGET: x86_64-pc-windows-msvc
     - TARGET: i686-pc-windows-msvc
+    
+before_install:
+  mkdir build
+  cd build
+  cmake ..
