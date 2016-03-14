@@ -23,12 +23,6 @@ DOS_API void dos_qguiapplication_exec();
 DOS_API void dos_qguiapplication_quit();
 DOS_API void dos_qguiapplication_delete();
 
-// QApplication
-DOS_API void dos_qapplication_create();
-DOS_API void dos_qapplication_exec();
-DOS_API void dos_qapplication_quit();
-DOS_API void dos_qapplication_delete();
-
 // QQmlApplicationEngine
 DOS_API void dos_qqmlapplicationengine_create(void **vptr);
 DOS_API void dos_qqmlapplicationengine_load(void *vptr, const char *filename);

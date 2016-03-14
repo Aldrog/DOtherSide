@@ -2,6 +2,7 @@ project(DOtherSide)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_FLAGS "-std=c++11")
 
 if (WIN32)
   add_definitions(-DWIN32)
@@ -11,7 +12,6 @@ find_package(Qt5Core)
 find_package(Qt5Qml)
 find_package(Qt5Gui)
 find_package(Qt5Quick)
-find_package(Qt5Widgets)
 
 set(HEADERS_LIST
   include/DOtherSide/DOtherSideTypes.h
@@ -44,13 +44,11 @@ include_directories(include include/Qt)
 
 # Shared version for distributing
 add_library(${PROJECT_NAME} SHARED ${SRC_LIST} ${HEADERS_LIST})
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::Quick)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Gui Qt5::Qml Qt5::Quick)
 
 # Static version for testing
 add_library("${PROJECT_NAME}Static" STATIC ${SRC_LIST} ${HEADERS_LIST})
-set_property(TARGET "${PROJECT_NAME}Static" PROPERTY CXX_STANDARD 11)
-target_link_libraries("${PROJECT_NAME}Static" PRIVATE Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::Quick)
+target_link_libraries("${PROJECT_NAME}Static" PRIVATE Qt5::Core Qt5::Gui Qt5::Qml Qt5::Quick)
 
 # Install directive for header files
 install(FILES
